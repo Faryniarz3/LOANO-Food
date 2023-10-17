@@ -2,31 +2,49 @@
     <head>
         <title> LOANO's food app</title>
         <link rel="stylesheet" type="text/css" href="./style.css"/>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nanum+Gothic&display=swap" rel="stylesheet">
-        <script defer src="src/index.js"></script> -->
+        <script defer src="index.js"></script>
     </head>
     <body>
         <header>
-            <div class = "header-column">Burgers</div>
-            <div class = "header-column">Pastas</div>
-            <div class = "header-colunn">Desserts</div>
+            <img class = navImage src = src/16zu9_landscape_Wirsing-Pasta.jpg alt = "pasta image">
+            <img class = navImage src = src/burger_image.jpg  alt = "burger image">
+            <img class = navImage src = src/Pizza_image.jpg alt = "pizza image">
+            <!-- <span class = "header-column-1">Burgers</span>
+            <span class = "header-column-2">Pastas</span>
+            <span class = "header-colunn-3">Desserts</span> -->
         </header>
-    </body>
+    
+    <hr/>
 
-   <body>
     <div>
-        <h1>Instructions box here</h1>
-        <ol>
+        <h1 id = "title">Instructions box here</h1>
+        <ol id = "menu-items">
             <li> Click category up top</li>
             <li> Click on food item</li>
             <li> Observe food item details</li>
             <li> Fill out new food form with your favorite</li>
         </ol>
+        
     </div>
-   </body>
 
+    <div class="image-box">
+        <img src="https://live.staticflickr.com/126/387606063_408c203f6c_b.jpg" alt="Your Image"/>
+    </div>
+
+    <div>
+        <h2 id = "menu-items-description">Welcome to the website</h2>
+        <ol id = "food-description">
+            <li> Food Name: </li>
+            <li> Food Description: </li>
+            <li> Restaurant Name: </li>
+            <li> Restaurant Address: </li>
+            <li> Item Price: </li>
+            <li> Category: </li>
+        </ol>
+
+    </div>
+
+<section>
    <div>
     <form id = "new-food-form">
         <h4>Add New Food</h4>
@@ -40,10 +58,17 @@
         <input type = "address" id = "new-address" />
         <label for = "price">Item Price</label>
         <input type = "price" id = "new-price" />
+        <select id="select" multiple>
+            <option value="blues" selected>Blues</option>
+            <option value="rock" selected>Rock</option>
+            <option value="classic">Classic</option>
+          </select>
+        <input type = "submit" value = "submit">
     </form>
    </div>
+</section>
     
-
+</body>
 
     
-</html> -->
+</html>
