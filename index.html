@@ -1,36 +1,86 @@
 <html>
     <head>
-        <title> LOANO's food app</title>
+        <title> FOOD APP PROJECT</title>
         <link rel="stylesheet" type="text/css" href="./style.css"/>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nanum+Gothic&display=swap" rel="stylesheet">
-        <script defer src="src/index.js"></script> -->
+      
+        <script  defer src="index.js"></script> 
     </head>
+
+
+
+
+
+
     <body>
         <header>
-            <div class = "header-column">Burgers</div>
-            <div class = "header-column">Pastas</div>
-            <div class = "header-colunn">Desserts</div>
+            <nav>
+                <div class="nav-item">
+                    <a href="#">
+                        <div class="image-container">
+                            <img src="./src/pastaPic1.jpg" alt="Image 1">
+                        </div>
+                        <span class="overlay-text">Pasta</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#">
+                        <div class="image-container">
+                            <img src="src/shrimps_pizza-wallpaper-2560x1440.jpg" alt="Image 2">
+                        </div>
+                        <span class="overlay-text">Pizza</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#">
+                        <div class="image-container">
+                            <img src="src/mcdonalds_burger_and_fries-wallpaper-2048x1152.jpg" alt="Image 2">
+                        </div>
+                        <span class="overlay-text">Burger</span>
+                    </a>
+                </div>
+            </nav>
         </header>
-    </body>
+<hr>
+<h1 id = "site-title">Favorite Local Dishes</h1>
 
-   <body>
-    <div>
-        <h1>Instructions box here</h1>
-        <ol>
-            <li> Click category up top</li>
-            <li> Click on food item</li>
-            <li> Observe food item details</li>
-            <li> Fill out new food form with your favorite</li>
+
+<section id = "middle-section">
+<div id = "instructions-container">
+        <h3 id = "instructions">Site Navigation: Overview/Instructions</h1>
+        <ol id = "menu-items">
+            <li> To access food items, click on a category up-top</li>
+            <li> To access dish details, click on a food item</li>
+            <li> To add a new dish, fill out the form below with pertinent information</li>
         </ol>
-    </div>
-   </body>
+    </div> 
 
-   <div>
+    <div id="menu-items-img-container">
+        <!-- <span>
+        <h2 id = "menu-items-description">Welcome to the website</h2>
+        <ol id = "food-description-list">
+            <li> Food Name: </li>
+            <li> Food Description: </li>
+            <li> Restaurant Name: </li>
+            <li> Restaurant Address: </li>
+            <li> Item Price: </li>
+            <li> Category: </li>
+        </ol>
+    </span> -->
+
+    <span class="image-box">
+        <img src="https://i0.wp.com/thinkfirstcommunication.com/wp-content/uploads/2022/05/placeholder-1-1.png?fit=1200%2C800&ssl=1" alt="Your Image" />
+    </span>
+    
+    </div> 
+
+</section>
+
+
+<section>
+   <div id = "form-container">
     <form id = "new-food-form">
         <h4>Add New Food</h4>
-        <label for = "name">Food Name</label>
+        <label for = "name"> Food Name</label>
         <input type = "name" id = "new-name" />
         <label for = "description">Description/Ingredients</label>
         <input type = "description" id = "new-description" />
@@ -40,10 +90,23 @@
         <input type = "address" id = "new-address" />
         <label for = "price">Item Price</label>
         <input type = "price" id = "new-price" />
+        <label for = "food-type">Food Type</label>
+        <select id="food-type" name="food-type">
+            <option value="pizza" selected>Pizza</option>
+            <option value="burgers" selected>Burgers</option>
+            <option value="pasta" selected>Pasta</option>
+          </select>
+          
+        <input type = "submit" value = "submit">
     </form>
    </div>
-    
+</section>  
+
+
+
+
+   </body>
 
 
     
-</html> -->
+</html> 
