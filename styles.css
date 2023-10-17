@@ -1,0 +1,23 @@
+/* styles.css */
+header {
+    display: flex;
+    background-color: #333; /* Set your desired background color */
+    color: #fff; /* Set your desired text color */
+    text-align: center;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 2%;
+}
+
+.header-column {
+    flex: 1;
+    text-align: justify;
+}
+
+form {
+    margin: 8rem 350;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+  }

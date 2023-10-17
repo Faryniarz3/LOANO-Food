@@ -1,7 +1,7 @@
 body {
-    background-color: black;
-    color: white;
-    font-family: 'Bebas Neue', cursive;
+    background-color: white;
+    /* color: white; */
+    font-family: 'Courier New', monospace;
 }
 
 #right-side {
