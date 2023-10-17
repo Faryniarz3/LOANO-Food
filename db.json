@@ -1,34 +1,34 @@
 {
-    "dishes": [
-      {
-        "id": 1,
-        "name": "california-cobb",
-        "description": "Crispy Romaine, Oven Roasted Chicken, Hass Avocado, Jammy Egg, Sliced Grape Tomatoes, Chopped Almonds",
-        "restaurant-name": "just-salad",
-        "address": "55 Broadway, New York, NY 10006",
-        "price": "$13.99",
-        "rating": "2",
-        "category": "Salad"
-      },
-      {
-        "id": 2,
-        "name": "new-york-panini",
-        "description": "Roasted Chicken Breast, Fresh Mozzarella, Hot Peppers, Arugula, Lemon Dressing",
-        "restaurant-name": "Pisillo Italian Panini (Nassau St.)",
-        "address": "97 Nassau Street, New York, NY 10038",
-        "price": "$16.90",
-        "rating": "2",
-        "category": "Sandwich"
-      },
-      {
-        "id": 3,
-        "name": "Hampton",
-        "description": "Grilled Chicken, Swiss, Cilantro, Lettuce, Tomato, Garlic and herb Mayo",
-        "restaurant-name": "Liberty Bagels",
-        "address": "32 Broadway, NY 10004",
-        "price": "$9.95",
-        "rating": "3",
-        "category": "Sandwich"
-      }
-    ]
-  }
+  "dishes": [
+    {
+      "id": 1,
+      "name": "california-cobb",
+      "description": "Crispy Romaine, Oven Roasted Chicken, Hass Avocado, Jammy Egg, Sliced Grape Tomatoes, Chopped Almonds",
+      "restaurant-name": "just-salad",
+      "address": "55 Broadway, New York, NY 10006",
+      "price": "$13.99",
+      "rating": "2",
+      "category": "Salad"
+    },
+    {
+      "id": 2,
+      "name": "new-york-panini",
+      "description": "Roasted Chicken Breast, Fresh Mozzarella, Hot Peppers, Arugula, Lemon Dressing",
+      "restaurant-name": "Pisillo Italian Panini (Nassau St.)",
+      "address": "97 Nassau Street, New York, NY 10038",
+      "price": "$16.90",
+      "rating": "2",
+      "category": "Sandwich"
+    },
+    {
+      "id": 3,
+      "name": "Hampton",
+      "description": "Grilled Chicken, Swiss, Cilantro, Lettuce, Tomato, Garlic and herb Mayo",
+      "restaurant-name": "Liberty Bagels",
+      "address": "32 Broadway, NY 10004",
+      "price": "$9.95",
+      "rating": "3",
+      "category": "Sandwich"
+    }
+  ]
+}
