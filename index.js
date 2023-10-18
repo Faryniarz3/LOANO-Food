@@ -132,15 +132,15 @@ function getDishDetails (data) {
         dishDetailsLiElementsArr[4].innerText = `Price: \n $${item.price}`;
         dishDetailsLiElementsArr[5].innerText = `Type: \n ${item.category}`;
     
-        const mapContainer = document.getElementById('map-container');
-        const iframe = document.createElement('iframe');
-        mapContainer.appendChild(iframe);
-        console.log(iframe.src = `https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${item.address}`);
-        mapContainer.style.display = 'block';
-        iframe.style.width = '100%';    
-        iframe.style.height = '100%';
-        iframe.frameBorder = '0';
-        iframe.style.border = '0';
+        // const mapContainer = document.getElementById('map-container');
+        // const iframe = document.createElement('iframe');
+        // mapContainer.appendChild(iframe);
+        // console.log(iframe.src = `https://www.google.com/maps/embed/v1/place?=${item.address}`);
+        // mapContainer.style.display = 'block';
+        // iframe.style.width = '100%';    
+        // iframe.style.height = '100%';
+        // iframe.frameBorder = '0';
+        // iframe.style.border = '0';
        
 
     })
