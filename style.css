@@ -41,7 +41,7 @@ nav {
     margin: 0; /* Ensure no margin */
 }
 
-.image-container {
+.nav-images {
     position: relative;
     height: auto; /* Adjusted to auto for responsive design */
     width: 100%; /* Ensuring it takes full width */
@@ -81,41 +81,75 @@ h1 {
     font-size: 2em;
 }
 
-#instructions, ol {
+h3#instructions{
+    font-family: sans-serif;
+    text-align: left;
+    width: auto;
+    font-size: 1.5em;
+    color: black;
+
+}
+
+#menu-items, #menu-items li {
+    font-family: sans-serif;
+    text-align: left;
+    width: auto;
+    font-size: 1.1em;
+    color: black;
+}
+#dish-items,#dish-items li  {
     font-family: sans-serif;
     text-align: left;
     width: auto;
     font-size: 1.25em;
     color: black;
     transition: color 0.5s ease-in-out;
-
+    padding-bottom: 5%;
+    /* display: list-item; */
 }
-h3{
+#food-description-list, #food-description-list li{
+
     font-family: sans-serif;
     text-align: left;
     width: auto;
+    font-size: 1.25em;
+    color: black;
+    padding: 5%;
 }
+
 li{padding-top: 5%;
 }
 
-li:hover{
+ #dish-items li:hover{
     color: aqua;
-}
+} 
+
 #instructions-container {
     margin-left: 4%;
-    padding: 2%;
-    max-width: 25vw;
+    padding: 5%;
+    max-width: 33vw;
     border-width: 5px;
     border-style:solid;
     border-color: black;
 }
 
-section
+#menu-items-img-container{
+
+   
+    padding: 5%;
+    margin-left: 5%;
+    max-width: 60vw;
+    border-width: 5px;
+    border-style:solid;
+    border-color: black;
+    
+}
 
 form {
      display: flex;
     flex-direction:column;
    
+    
   }
   label {padding-top: 1%;
   }
@@ -149,3 +183,21 @@ form {
   /* #image-box{
     max-height: 50vh;
   } */
+
+
+  #map-container {
+    width: 50%; /* Adjust width as per requirement */
+    height: 400px; /* Adjust height as per requirement */
+    position: fixed; 
+    top: 0; 
+    right: 0; /* Positions the map on the right side of the page */
+    z-index: 1000; 
+    border: none;
+}
+
+/* stars symbol on dish item details */
+.stars {
+    color: red;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 2px black;
+}
