@@ -215,8 +215,14 @@ formEl.addEventListener('submit', (event) => {
         body: JSON.stringify(newDish)
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => {
+        
+        console.log(data);
+        //clear inner html and load data
+        //getDishDetails(data);
+    })
     .catch((error) => console.error('Error:', error));
     formEl.reset();
 })
+
 
