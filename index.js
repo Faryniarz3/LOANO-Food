@@ -81,7 +81,7 @@ function getPizzas(data) {
             menuItemsList.textContent = "";
             instructionsHeader.textContent = `Favorite Local Pizza:`;
             instructionsList.style.display = 'none';
-            logoImgBlock.innerHTML=""
+            logoImgBlock.innerHTML="";
             menuItemsList.style.display = 'block';
             dishDetailContainer.style.display = 'block';
         data.forEach((ele) => {
@@ -136,7 +136,7 @@ function getDishDetails (data) {
 
         dishDetailsLiElementsArr[0].innerHTML = `<strong> Dish Name: </strong> \n ${item.name}`;
         dishDetailsLiElementsArr[1].innerHTML = `<strong> Description: </strong> \n ${item.description}`;
-        dishDetailsLiElementsArr[2].innerHTML = `<strong> Restaurant: </strong> \n ${item['restaurant-name']}`;
+        dishDetailsLiElementsArr[2].innerHTML = `<strong> Restaurant: </strong> \n ${item.restaurant_name}`;
         dishDetailsLiElementsArr[3].innerHTML = `<strong> Address: </strong> \n ${item.address}`;
         dishDetailsLiElementsArr[4].innerHTML = `<strong> Price: </strong> \n $${item.price}`;
         dishDetailsLiElementsArr[5].innerHTML = `<strong> Type: </strong> \n ${item.category}`;
@@ -167,11 +167,10 @@ function displayDishDetails (data) {
 
     dishDetailsLiElementsArr[0].innerHTML = `<strong> Dish Name: </strong> \n ${data.name}`;
     dishDetailsLiElementsArr[1].innerHTML = `<strong> Description: </strong> \n ${data.description}`;
-    dishDetailsLiElementsArr[2].innerHTML = `<strong> Restaurant: </strong> \n ${data['restaurant-name']}`;
+    dishDetailsLiElementsArr[2].innerHTML = `<strong> Restaurant: </strong> \n ${data.restaurant_name}`;
     dishDetailsLiElementsArr[3].innerHTML = `<strong> Address: </strong> \n ${data.address}`;
     dishDetailsLiElementsArr[4].innerHTML = `<strong> Price: </strong> \n $${data.price}`;
     dishDetailsLiElementsArr[5].innerHTML = `<strong> Type: </strong> \n ${data.category}`;
-    // dishDetailsLiElementsArr[6].innerHTML = `<strong> Rating: </strong> \n ${data.rating}`;
     dishDetailsLiElementsArr[6].innerHTML = `<strong> Rating: </strong> \n <span class="stars">${starRating}</span>`;
 
 
@@ -182,29 +181,33 @@ class Dish {
     constructor(name,description,restaurant,address,price,foodType,rating){
         this.name = name;
         this.description = description;
-        this.restaurant = restaurant;
+        this.restaurant_name = restaurant;
         this.address = address;
         this.price = price;
-        this.foodType = foodType;
+        this.category = foodType;
         this.rating = rating;
 }}
 //click event to add form input info to json object
 
 formEl.addEventListener('submit', (event) => {
     event.preventDefault();
+    const selectElement = document.getElementById('food_type');
+    const selectedOptionText = selectElement.options[selectElement.selectedIndex].text
 
     const inputName = formEl.elements.name.value;
     const inputDescription = formEl.elements.description.value;
     const inputRestaurant = formEl.elements.restaurant_name.value;
     const inputAddress = formEl.elements.address.value;
     const inputPrice = formEl.elements.price.value;
-    const inputFoodType = formEl.elements[`food-type`].value;
+    const inputFoodType = selectedOptionText;
+    const outputServerLocation = formEl.elements.food_type.value;
     const inputRating = formEl.elements.rating.value;
-    
     const newDish = new Dish (inputName, inputDescription, inputRestaurant, inputAddress, inputPrice, inputFoodType,inputRating)
     console.log(newDish);
+    console.log(selectedOptionText);
+    
 
-    fetch(`http://localhost:3000/${inputFoodType}`, { 
+    fetch(`http://localhost:3000/${outputServerLocation}`, { 
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -214,5 +217,6 @@ formEl.addEventListener('submit', (event) => {
     .then(response => response.json())
     .then(data => console.log(data))
     .catch((error) => console.error('Error:', error));
+    formEl.reset();
 })
 
