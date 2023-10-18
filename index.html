@@ -94,20 +94,26 @@
     <form id = "new-food-form">
         <h4>Add New Food</h4>
         <label for = "name"> Food Name</label>
-        <input type = "name" id = "new-name" />
+        <input type= "text" name = "name" id = "new-name" />
         <label for = "description">Description/Ingredients</label>
-        <input type = "description" id = "new-description" />
+        <input type= "text" name = "description" id = "new-description" />
         <label for = "restaurant_name">Restaurant Name</label>
-        <input type = "restaurant_name" id = "new-restaurant" />
+        <input type= "text" name = "restaurant_name" id = "new-restaurant" />
         <label for = "address">Restaurant Address</label>
-        <input type = "address" id = "new-address" />
+        <input type= "text" name = "address" id = "new-address" />
         <label for = "price">Item Price</label>
-        <input type = "price" id = "new-price" />
+        <input type="text" name = "price" id = "new-price" />
         <label for = "food-type">Food Type</label>
         <select id="food-type" name="food-type">
             <option value="pizza" selected>Pizza</option>
             <option value="burgers" selected>Burgers</option>
             <option value="pasta" selected>Pasta</option>
+          </select>
+          <label for = "rating">Rating</label>
+          <select id="rating" name="rating">
+            <option value="1" selected>1</option>
+            <option value="2" selected>2</option>
+            <option value="3" selected>3</option>
           </select>
           
         <input type = "submit" value = "submit">
