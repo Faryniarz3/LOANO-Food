@@ -1,8 +1,8 @@
 <html>
     <head>
+        <meta charset="UTF-8">
         <title> FOOD APP PROJECT</title>
         <link rel="stylesheet" type="text/css" href="./style.css"/>
-      
         <script  defer src="index.js"></script> 
     </head>
 
@@ -51,6 +51,10 @@
             <li> To access food items, click on a category up-top</li>
             <li> To access dish details, click on a food item</li>
             <li> To add a new dish, fill out the form below with pertinent information</li>
+            <li> Rating System: <br>
+                ٭<br>High-quality cooking, worth a stop. <br>
+                ٭٭<br> Excellent cuisine, worth a detour. <br>
+                ٭٭٭<br> Exceptional cuisine, worth a special journey. </li>
         </ol>
         <ul id = "dish-items" style="display: none;">
             <!-- <li> Food Name: </li>
@@ -72,6 +76,7 @@
             <li class="dishlist" name="restaurant-address"> Restaurant Address: </li>
             <li class="dishlist" name="dish-price"> Item Price: </li>
             <li  class="dishlist" name="dish-type"> Category: </li>
+            <li  class="dishlist" name="dish-rating"> Rating: </li>
         </ul>
     </span>
 
@@ -80,7 +85,7 @@
     </span>
     
     </div> 
-    <!-- <div id="map-container" style="display: none"></div> -->
+    <div id="map" style="display: none"></div>
 </section>
 
 

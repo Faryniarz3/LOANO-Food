@@ -50,7 +50,7 @@ const dishDetailsLiElementsArr = Array.from(dishDetailsLiElements);
 
 function getPastas(data) {
     navImagesArr[0].addEventListener('click', () =>{
-
+        
         menuItemsList.textContent = "";
             instructionsHeader.textContent = `Favorite Local Pasta:`;
             instructionsList.style.display = 'none';
@@ -59,26 +59,17 @@ function getPastas(data) {
             dishDetailContainer.style.display = 'block';
 
         data.forEach((ele) => {
-            console.log(ele)
+            // console.log(ele)
             const menuItemEls = document.createElement('li');
             menuItemEls.textContent = ele.name;
             menuItemEls.className = 'menu-item-els'
             menuItemsList.appendChild(menuItemEls);
 
         })
-     
+        //auto loads first menu item on menu list
+        if(data.length > 0) {displayDishDetails(data[0])};
     })
 }
-
-function searchDishName(data) {
-    //create array of dishes
-
-   
-    // const itemName = event.target.textContent;
-    // const item = data.find(obj => obj.name === itemName);
-    
-}
-
 
 
 function getPizzas(data) {
@@ -90,12 +81,14 @@ function getPizzas(data) {
             menuItemsList.style.display = 'block';
             dishDetailContainer.style.display = 'block';
         data.forEach((ele) => {
-            console.log(ele)
+            // console.log(ele)
             const menuItemEls = document.createElement('li');
             menuItemEls.textContent = ele.name;
             menuItemsList.appendChild(menuItemEls);
           
         })
+         //auto loads first menu item on menu list
+        if(data.length > 0) {displayDishDetails(data[0])};
     })
 }
 
@@ -109,58 +102,68 @@ function getBurgers(data) {
             dishDetailContainer.style.display = 'block';
             
         data.forEach((ele) => {
-            console.log(ele)
             const menuItemEls = document.createElement('li');
             menuItemEls.textContent = ele.name;
             menuItemsList.appendChild(menuItemEls);
-            
           
         })
+         //auto loads first menu item on menu list
+        if(data.length > 0) {displayDishDetails(data[0])};
+       
     })
+    
 }
 
 //gets dish details by connect textContent of event.target (dish name on menu) w/ name value of dish in json object
 function getDishDetails (data) {
+
     menuItemsListElement.addEventListener('click', (event) => {
+
+        //adds star symbol in place of number values for rating and repeats symbol based on value
+        // const starSymbol = "٭";
+        // const starRating = starSymbol.repeat(item.rating); 
+        //grabs dish object by searching for name value in object array
         const itemName = event.target.textContent;
         const item = data.find(obj => obj.name == itemName);
-        console.log(item)
-        dishDetailsLiElementsArr[0].innerText = `Dish Name: \n ${item.name}`;
-        dishDetailsLiElementsArr[1].innerText = `Description: \n ${item.description}`;
-        dishDetailsLiElementsArr[2].innerText = `Restaurant: \n ${item['restaurant-name']}`;
-        dishDetailsLiElementsArr[3].innerText = `Address: \n ${item.address}`;
-        dishDetailsLiElementsArr[4].innerText = `Price: \n $${item.price}`;
-        dishDetailsLiElementsArr[5].innerText = `Type: \n ${item.category}`;
-    
-        // const mapContainer = document.getElementById('map-container');
-        // const iframe = document.createElement('iframe');
-        // mapContainer.appendChild(iframe);
-        // console.log(iframe.src = `https://www.google.com/maps/embed/v1/place?=${item.address}`);
-        // mapContainer.style.display = 'block';
-        // iframe.style.width = '100%';    
-        // iframe.style.height = '100%';
-        // iframe.frameBorder = '0';
-        // iframe.style.border = '0';
+        console.log(item);
+
+        dishDetailsLiElementsArr[0].innerHTML = `<strong> Dish Name: </strong> \n ${item.name}`;
+        dishDetailsLiElementsArr[1].innerHTML = `<strong> Description: </strong> \n ${item.description}`;
+        dishDetailsLiElementsArr[2].innerHTML = `<strong> Restaurant: </strong> \n ${item['restaurant-name']}`;
+        dishDetailsLiElementsArr[3].innerHTML = `<strong> Address: </strong> \n ${item.address}`;
+        dishDetailsLiElementsArr[4].innerHTML = `<strong> Price: </strong> \n $${item.price}`;
+        dishDetailsLiElementsArr[5].innerHTML = `<strong> Type: </strong> \n ${item.category}`;
+        // dishDetailsLiElementsArr[6].innerHTML = `<strong> Rating: </strong> \n <span class="stars">${starRating}</span>`;
        
+       // document.addEventListener('DOMContentLoaded', function() {
+            const mapDiv = document.getElementById('map');
+            mapDiv.innerHTML = ''; 
+            const iframe = document.createElement('iframe');
+            mapDiv.style.display = 'block';
+            iframe.width = '600';
+            iframe.height = '450';
+            iframe.style.border = '0';
+            iframe.loading = 'lazy';
+            const location = encodeURIComponent(item.address); 
+            iframe.src = `https://www.google.com/maps?q=${location}&output=embed`; 
+            mapDiv.appendChild(iframe);       
 
     })
 
 }
 
 
-// //iframe object with map location
-// // Get the container
-// const mapContainer = document.getElementById('map-container');
-// const iframe = document.createElement('iframe');
+function displayDishDetails (data) {
+    // const starSymbol = "٭";
+    // const starRating = starSymbol.repeat(data.rating); 
 
-// // Set the Google Maps URL with the location
-// iframe.src = `https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${item.address}`;
+    dishDetailsLiElementsArr[0].innerHTML = `<strong> Dish Name: </strong> \n ${data.name}`;
+    dishDetailsLiElementsArr[1].innerHTML = `<strong> Description: </strong> \n ${data.description}`;
+    dishDetailsLiElementsArr[2].innerHTML = `<strong> Restaurant: </strong> \n ${data['restaurant-name']}`;
+    dishDetailsLiElementsArr[3].innerHTML = `<strong> Address: </strong> \n ${data.address}`;
+    dishDetailsLiElementsArr[4].innerHTML = `<strong> Price: </strong> \n $${data.price}`;
+    dishDetailsLiElementsArr[5].innerHTML = `<strong> Type: </strong> \n ${data.category}`;
+    dishDetailsLiElementsArr[6].innerHTML = `<strong> Rating: </strong> \n ${data.rating}`;
+    // dishDetailsLiElementsArr[6].innerHTML = `<strong> Rating: </strong> \n <span class="stars">${starRating}</span>`;
 
-// // Apply styles to iframe
-// iframe.style.width = '100%';
-// iframe.style.height = '100%';
-// iframe.frameBorder = '0';
-// iframe.style.border = '0';
-
-// // Append the iframe to the container
-// mapContainer.appendChild(iframe);
+}
