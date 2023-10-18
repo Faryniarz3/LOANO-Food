@@ -43,13 +43,18 @@ const dishDetailContainer = document.getElementById('food-description-list');
 
 //DOM variables containing the elements for selecting menu items 
 const menuItemsListElement = document.getElementById('dish-items')
+<<<<<<< HEAD
 const menuItemsListItemsArr = Array.from(menuItemsListItems)
+=======
+>>>>>>> origin/main
 
 //variables for dish detail section
 const dishDetailsLiElements = document.getElementsByClassName('dishlist');
 const dishDetailsLiElementsArr = Array.from(dishDetailsLiElements);
 
 //form element variables
+const formEl = document.getElementById('new-food-form');
+
 
 function getPastas(data) {
     navImagesArr[0].addEventListener('click', () =>{
@@ -80,7 +85,7 @@ function getPizzas(data) {
             menuItemsList.textContent = "";
             instructionsHeader.textContent = `Favorite Local Pizza:`;
             instructionsList.style.display = 'none';
-            logoImgBlock.innerHTML=""
+            logoImgBlock.innerHTML="";
             menuItemsList.style.display = 'block';
             dishDetailContainer.style.display = 'block';
         data.forEach((ele) => {
@@ -123,7 +128,7 @@ function getDishDetails (data) {
     menuItemsListElement.addEventListener('click', (event) => {
         
 
-      
+        
       
         //grabs dish object by searching for name value in object array
         const itemName = event.target.textContent;
@@ -132,15 +137,15 @@ function getDishDetails (data) {
         //adds star symbol in place of number values for rating and repeats symbol based on value
         const starSymbol = "٭";
         const starRating = starSymbol.repeat(item.rating); 
+        currentDish = item;
 
         dishDetailsLiElementsArr[0].innerHTML = `<strong> Dish Name: </strong> \n ${item.name}`;
         dishDetailsLiElementsArr[1].innerHTML = `<strong> Description: </strong> \n ${item.description}`;
-        dishDetailsLiElementsArr[2].innerHTML = `<strong> Restaurant: </strong> \n ${item['restaurant-name']}`;
+        dishDetailsLiElementsArr[2].innerHTML = `<strong> Restaurant: </strong> \n ${item.restaurant_name}`;
         dishDetailsLiElementsArr[3].innerHTML = `<strong> Address: </strong> \n ${item.address}`;
         dishDetailsLiElementsArr[4].innerHTML = `<strong> Price: </strong> \n $${item.price}`;
         dishDetailsLiElementsArr[5].innerHTML = `<strong> Type: </strong> \n ${item.category}`;
         dishDetailsLiElementsArr[6].innerHTML = `<strong> Rating: </strong> \n <span class="stars">${starRating}</span>`;
-        // dishDetailsLiElementsArr[6].innerHTML = `<strong> Rating: </strong> \n <span class="stars">${starRating}</span>`;
        
        // document.addEventListener('DOMContentLoaded', function() {
             const mapDiv = document.getElementById('map');
@@ -167,18 +172,68 @@ function displayDishDetails (data) {
 
     dishDetailsLiElementsArr[0].innerHTML = `<strong> Dish Name: </strong> \n ${data.name}`;
     dishDetailsLiElementsArr[1].innerHTML = `<strong> Description: </strong> \n ${data.description}`;
-    dishDetailsLiElementsArr[2].innerHTML = `<strong> Restaurant: </strong> \n ${data['restaurant-name']}`;
+    dishDetailsLiElementsArr[2].innerHTML = `<strong> Restaurant: </strong> \n ${data.restaurant_name}`;
     dishDetailsLiElementsArr[3].innerHTML = `<strong> Address: </strong> \n ${data.address}`;
     dishDetailsLiElementsArr[4].innerHTML = `<strong> Price: </strong> \n $${data.price}`;
     dishDetailsLiElementsArr[5].innerHTML = `<strong> Type: </strong> \n ${data.category}`;
-    dishDetailsLiElementsArr[6].innerHTML = `<strong> Rating: </strong> \n ${data.rating}`;
     dishDetailsLiElementsArr[6].innerHTML = `<strong> Rating: </strong> \n <span class="stars">${starRating}</span>`;
-    //dishDetailsLiElementsArr[6].innerHTML = `<strong> Rating: </strong> \n <span class="stars">${starRating}</span>`;
 
 
 }
 
+<<<<<<< HEAD
 const foodForm = document.getElementById('new-food-form');
+=======
+//class to add form input data to a new object
+class Dish {
+    constructor(name,description,restaurant,address,price,foodType,rating){
+        this.name = name;
+        this.description = description;
+        this.restaurant_name = restaurant;
+        this.address = address;
+        this.price = price;
+        this.category = foodType;
+        this.rating = rating;
+}}
+//click event to add form input info to json object
+
+formEl.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const selectElement = document.getElementById('food_type');
+    const selectedOptionText = selectElement.options[selectElement.selectedIndex].text
+
+    const inputName = formEl.elements.name.value;
+    const inputDescription = formEl.elements.description.value;
+    const inputRestaurant = formEl.elements.restaurant_name.value;
+    const inputAddress = formEl.elements.address.value;
+    const inputPrice = formEl.elements.price.value;
+    const inputFoodType = selectedOptionText;
+    const outputServerLocation = formEl.elements.food_type.value;
+    const inputRating = formEl.elements.rating.value;
+    const newDish = new Dish (inputName, inputDescription, inputRestaurant, inputAddress, inputPrice, inputFoodType,inputRating)
+    console.log(newDish);
+    console.log(selectedOptionText);
+    
+
+    fetch(`http://localhost:3000/${outputServerLocation}`, { 
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newDish)
+    })
+    .then(response => response.json())
+    .then(data => {
+        
+        console.log(data);
+        //clear inner html and load data
+        //getDishDetails(data);
+    })
+    .catch((error) => console.error('Error:', error));
+    formEl.reset();
+})
+
+>>>>>>> origin/main
 
 foodForm.addEventListener('submit', (event) => {
   event.preventDefault();
