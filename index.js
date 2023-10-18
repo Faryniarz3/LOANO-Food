@@ -1,3 +1,6 @@
+let currentDish
+let dishIDCounter
+
 fetch('http://localhost:3000/burgers')
 .then((res) => res.json())
 .then((data) => {
@@ -47,6 +50,7 @@ const menuItemsListItemsArr = Array.from(menuItemsListItems)
 const dishDetailsLiElements = document.getElementsByClassName('dishlist');
 const dishDetailsLiElementsArr = Array.from(dishDetailsLiElements);
 
+//form element variables
 
 function getPastas(data) {
     navImagesArr[0].addEventListener('click', () =>{
@@ -119,13 +123,15 @@ function getDishDetails (data) {
 
     menuItemsListElement.addEventListener('click', (event) => {
 
-        //adds star symbol in place of number values for rating and repeats symbol based on value
-        // const starSymbol = "٭";
-        // const starRating = starSymbol.repeat(item.rating); 
+      
+      
         //grabs dish object by searching for name value in object array
         const itemName = event.target.textContent;
         const item = data.find(obj => obj.name == itemName);
         console.log(item);
+        //adds star symbol in place of number values for rating and repeats symbol based on value
+        const starSymbol = "٭";
+        const starRating = starSymbol.repeat(item.rating); 
 
         dishDetailsLiElementsArr[0].innerHTML = `<strong> Dish Name: </strong> \n ${item.name}`;
         dishDetailsLiElementsArr[1].innerHTML = `<strong> Description: </strong> \n ${item.description}`;
@@ -133,6 +139,7 @@ function getDishDetails (data) {
         dishDetailsLiElementsArr[3].innerHTML = `<strong> Address: </strong> \n ${item.address}`;
         dishDetailsLiElementsArr[4].innerHTML = `<strong> Price: </strong> \n $${item.price}`;
         dishDetailsLiElementsArr[5].innerHTML = `<strong> Type: </strong> \n ${item.category}`;
+        dishDetailsLiElementsArr[6].innerHTML = `<strong> Rating: </strong> \n <span class="stars">${starRating}</span>`;
         // dishDetailsLiElementsArr[6].innerHTML = `<strong> Rating: </strong> \n <span class="stars">${starRating}</span>`;
        
        // document.addEventListener('DOMContentLoaded', function() {
@@ -154,8 +161,9 @@ function getDishDetails (data) {
 
 
 function displayDishDetails (data) {
-    // const starSymbol = "٭";
-    // const starRating = starSymbol.repeat(data.rating); 
+    //adds star symbol in place of number input for rating
+    const starSymbol = "٭";
+    const starRating = starSymbol.repeat(data.rating); 
 
     dishDetailsLiElementsArr[0].innerHTML = `<strong> Dish Name: </strong> \n ${data.name}`;
     dishDetailsLiElementsArr[1].innerHTML = `<strong> Description: </strong> \n ${data.description}`;
@@ -164,6 +172,10 @@ function displayDishDetails (data) {
     dishDetailsLiElementsArr[4].innerHTML = `<strong> Price: </strong> \n $${data.price}`;
     dishDetailsLiElementsArr[5].innerHTML = `<strong> Type: </strong> \n ${data.category}`;
     dishDetailsLiElementsArr[6].innerHTML = `<strong> Rating: </strong> \n ${data.rating}`;
-    // dishDetailsLiElementsArr[6].innerHTML = `<strong> Rating: </strong> \n <span class="stars">${starRating}</span>`;
+    dishDetailsLiElementsArr[6].innerHTML = `<strong> Rating: </strong> \n <span class="stars">${starRating}</span>`;
+    //dishDetailsLiElementsArr[6].innerHTML = `<strong> Rating: </strong> \n <span class="stars">${starRating}</span>`;
+
 
 }
+
+
