@@ -200,14 +200,7 @@ formEl.addEventListener('submit', (event) => {
     const inputPrice = formEl.elements.price.value;
     const inputFoodType = formEl.elements[`food-type`].value;
     const inputRating = formEl.elements.rating.value;
-   
-    // console.log(inputName);
-    // console.log(inputDescription);
-    // console.log(inputRestaurant)
-    // console.log(inputAddress);
-    // console.log(inputPrice);
-    // console.log(inputFoodType);
-    // console.log(inputRating);
+    
     const newDish = new Dish (inputName, inputDescription, inputRestaurant, inputAddress, inputPrice, inputFoodType,inputRating)
     console.log(newDish);
 
