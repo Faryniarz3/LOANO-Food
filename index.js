@@ -43,8 +43,6 @@ const dishDetailContainer = document.getElementById('food-description-list');
 
 //DOM variables containing the elements for selecting menu items 
 const menuItemsListElement = document.getElementById('dish-items')
-const menuItemsListItems = menuItemsListElement.childNodes
-const menuItemsListItemsArr = Array.from(menuItemsListItems)
 
 //variables for dish detail section
 const dishDetailsLiElements = document.getElementsByClassName('dishlist');
@@ -179,7 +177,17 @@ function displayDishDetails (data) {
 
 }
 
-
+//class to add form input data to a new object
+class Dish {
+    constructor(name,description,restaurant,address,price,foodType,rating){
+        this.name = name;
+        this.description = description;
+        this.restaurant = restaurant;
+        this.address = address;
+        this.price = price;
+        this.foodType = foodType;
+        this.rating = rating;
+}}
 //click event to add form input info to json object
 
 formEl.addEventListener('submit', (event) => {
@@ -193,14 +201,25 @@ formEl.addEventListener('submit', (event) => {
     const inputFoodType = formEl.elements[`food-type`].value;
     const inputRating = formEl.elements.rating.value;
    
-    console.log(inputName);
-    console.log(inputDescription);
-    console.log(inputRestaurant)
-    console.log(inputAddress);
-    console.log(inputPrice);
-    console.log(inputFoodType);
-    console.log(inputRating);
-    
+    // console.log(inputName);
+    // console.log(inputDescription);
+    // console.log(inputRestaurant)
+    // console.log(inputAddress);
+    // console.log(inputPrice);
+    // console.log(inputFoodType);
+    // console.log(inputRating);
+    const newDish = new Dish (inputName, inputDescription, inputRestaurant, inputAddress, inputPrice, inputFoodType,inputRating)
+    console.log(newDish);
+
+    fetch(`http://localhost:3000/${inputFoodType}`, { 
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newDish)
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch((error) => console.error('Error:', error));
 })
 
-class Dish {}
