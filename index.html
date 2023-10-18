@@ -1,8 +1,8 @@
 <html>
     <head>
-        <meta charset="UTF-8">
         <title> FOOD APP PROJECT</title>
         <link rel="stylesheet" type="text/css" href="./style.css"/>
+      
         <script  defer src="index.js"></script> 
     </head>
 
@@ -17,7 +17,7 @@
                 <div class="nav-item">
                     <a href="#">
                         <div class="nav-images">
-                            <img src="./src/pastaPic1.jpg" alt="Pasta">
+                            <img src="./src/pastaPic1.jpg" alt="Image 1">
                         </div>
                         <span class="overlay-text">Pasta</span>
                     </a>
@@ -25,7 +25,7 @@
                 <div class="nav-item">
                     <a href="#">
                         <div class="nav-images">
-                            <img src="src/shrimps_pizza-wallpaper-2560x1440.jpg" alt="Pizza">
+                            <img src="src/shrimps_pizza-wallpaper-2560x1440.jpg" alt="Image 2">
                         </div>
                         <span class="overlay-text">Pizza</span>
                     </a>
@@ -33,7 +33,7 @@
                 <div class="nav-item">
                     <a href="#">
                         <div class="nav-images">
-                            <img src="src/mcdonalds_burger_and_fries-wallpaper-2048x1152.jpg" alt="Burger">
+                            <img src="src/mcdonalds_burger_and_fries-wallpaper-2048x1152.jpg" alt="Image 2">
                         </div>
                         <span class="overlay-text">Burger</span>
                     </a>
@@ -51,41 +51,28 @@
             <li> To access food items, click on a category up-top</li>
             <li> To access dish details, click on a food item</li>
             <li> To add a new dish, fill out the form below with pertinent information</li>
-            <li> Rating System: <br>
-                ٭<br>High-quality cooking, worth a stop. <br>
-                ٭٭<br> Excellent cuisine, worth a detour. <br>
-                ٭٭٭<br> Exceptional cuisine, worth a special journey. </li>
         </ol>
-        <ul id = "dish-items" style="display: none;">
-            <!-- <li> Food Name: </li>
+    </div> 
+
+    <div id="menu-items-img-container">
+        <!-- <span>
+        <h2 id = "menu-items-description">Welcome to the website</h2>
+        <ol id = "food-description-list">
+            <li> Food Name: </li>
             <li> Food Description: </li>
             <li> Restaurant Name: </li>
             <li> Restaurant Address: </li>
             <li> Item Price: </li>
-            <li> Category: </li> -->
-        </ul>
-    </div> 
-
-    <div id="menu-items-img-container">
-        <span>
-        <!-- <h2 id = "menu-items-description">Welcome to the website</h2> -->
-        <ul id = "food-description-list" style="display: none";>
-            <li class="dishlist" name="dish-name"> Food Name: </li>
-            <li class="dishlist" name="dish-description"> Food Description: </li>
-            <li class="dishlist" name="restaurant-name"> Restaurant Name: </li>
-            <li class="dishlist" name="restaurant-address"> Restaurant Address: </li>
-            <li class="dishlist" name="dish-price"> Item Price: </li>
-            <li  class="dishlist" name="dish-type"> Category: </li>
-            <li  class="dishlist" name="dish-rating"> Rating: </li>
-        </ul>
-    </span>
+            <li> Category: </li>
+        </ol>
+    </span> -->
 
     <span class="image-box">
         <img src="https://i0.wp.com/thinkfirstcommunication.com/wp-content/uploads/2022/05/placeholder-1-1.png?fit=1200%2C800&ssl=1" alt="Your Image" />
     </span>
     
     </div> 
-    <div id="map" style="display: none"></div>
+
 </section>
 
 
@@ -104,10 +91,10 @@
         <label for = "price">Item Price</label>
         <input type = "price" id = "new-price" />
         <label for = "food-type">Food Type</label>
-        <select id="food-type" name="food-type">
-            <option value="pizza" selected>Pizza</option>
-            <option value="burgers" selected>Burgers</option>
-            <option value="pasta" selected>Pasta</option>
+        <select id = "food-type" name="food-type">
+            <option value = "pizza" selected>Pizza</option>
+            <option value = "burgers" selected>Burgers</option>
+            <option value = "pastas" selected>Pastas</option>
           </select>
           
         <input type = "submit" value = "submit">

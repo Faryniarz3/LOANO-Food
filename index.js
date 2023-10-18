@@ -43,7 +43,6 @@ const dishDetailContainer = document.getElementById('food-description-list');
 
 //DOM variables containing the elements for selecting menu items 
 const menuItemsListElement = document.getElementById('dish-items')
-const menuItemsListItems = menuItemsListElement.childNodes
 const menuItemsListItemsArr = Array.from(menuItemsListItems)
 
 //variables for dish detail section
@@ -122,6 +121,7 @@ function getBurgers(data) {
 function getDishDetails (data) {
 
     menuItemsListElement.addEventListener('click', (event) => {
+        
 
       
       
@@ -178,4 +178,43 @@ function displayDishDetails (data) {
 
 }
 
+const foodForm = document.getElementById('new-food-form');
 
+foodForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const name = document.getElementById('new-name').value;
+  const description = document.getElementById('new-description').value;
+  const restaurantName = document.getElementById('new-restaurant').value;
+  const address = document.getElementById('new-address').value;
+  const price = document.getElementById('new-price').value;
+  const category = document.getElementById('food-type').value;
+
+ 
+  const newFood = {
+    name: name,
+    description: description,
+    [`restaurant-name`]: restaurantName,
+    address: address,
+    price: price,
+    category: category,
+  };
+
+  // Send a POST request to your server to add the new food item to the database
+  fetch(`http://localhost:3000/${category}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(newFood),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Handle the response if necessary
+      // For example, you can display a success message to the user
+      console.log('Food item added successfully:', data);
+    })
+    .catch((error) => {
+      console.error('Error adding food item:', error);
+    });
+});
