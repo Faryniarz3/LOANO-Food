@@ -43,6 +43,7 @@ const dishDetailContainer = document.getElementById('food-description-list');
 
 //DOM variables containing the elements for selecting menu items 
 const menuItemsListElement = document.getElementById('dish-items')
+const menuItemsListItemsArr = Array.from(menuItemsListItems)
 
 //variables for dish detail section
 const dishDetailsLiElements = document.getElementsByClassName('dishlist');
@@ -122,6 +123,7 @@ function getBurgers(data) {
 function getDishDetails (data) {
 
     menuItemsListElement.addEventListener('click', (event) => {
+        
 
         
       
@@ -176,53 +178,43 @@ function displayDishDetails (data) {
 
 }
 
-//class to add form input data to a new object
-class Dish {
-    constructor(name,description,restaurant,address,price,foodType,rating){
-        this.name = name;
-        this.description = description;
-        this.restaurant_name = restaurant;
-        this.address = address;
-        this.price = price;
-        this.category = foodType;
-        this.rating = rating;
-}}
-//click event to add form input info to json object
+const foodForm = document.getElementById('new-food-form');
 
-formEl.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const selectElement = document.getElementById('food_type');
-    const selectedOptionText = selectElement.options[selectElement.selectedIndex].text
+foodForm.addEventListener('submit', (event) => {
+  event.preventDefault();
 
-    const inputName = formEl.elements.name.value;
-    const inputDescription = formEl.elements.description.value;
-    const inputRestaurant = formEl.elements.restaurant_name.value;
-    const inputAddress = formEl.elements.address.value;
-    const inputPrice = formEl.elements.price.value;
-    const inputFoodType = selectedOptionText;
-    const outputServerLocation = formEl.elements.food_type.value;
-    const inputRating = formEl.elements.rating.value;
-    const newDish = new Dish (inputName, inputDescription, inputRestaurant, inputAddress, inputPrice, inputFoodType,inputRating)
-    console.log(newDish);
-    console.log(selectedOptionText);
-    
+  const name = document.getElementById('new-name').value;
+  const description = document.getElementById('new-description').value;
+  const restaurantName = document.getElementById('new-restaurant').value;
+  const address = document.getElementById('new-address').value;
+  const price = document.getElementById('new-price').value;
+  const category = document.getElementById('food-type').value;
 
-    fetch(`http://localhost:3000/${outputServerLocation}`, { 
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newDish)
+ 
+  const newFood = {
+    name: name,
+    description: description,
+    [`restaurant-name`]: restaurantName,
+    address: address,
+    price: price,
+    category: category,
+  };
+
+  // Send a POST request to your server to add the new food item to the database
+  fetch(`http://localhost:3000/${category}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(newFood),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Handle the response if necessary
+      // For example, you can display a success message to the user
+      console.log('Food item added successfully:', data);
     })
-    .then(response => response.json())
-    .then(data => {
-        
-        console.log(data);
-        //clear inner html and load data
-        //getDishDetails(data);
-    })
-    .catch((error) => console.error('Error:', error));
-    formEl.reset();
-})
-
-
+    .catch((error) => {
+      console.error('Error adding food item:', error);
+    });
+});
